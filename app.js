@@ -3,7 +3,6 @@ let textInput = document.querySelector('#textInput'); //поле инпута
 let button = document.querySelector('#textBtn');	//кнопка
 let toDoList = document.getElementById('toDoList');	//поле отображения списка
 
-let listUl = document.createElement('ol');	//создаем контейнер для будущих li
 
 button.addEventListener('click', addPoint); //обработчик кнопки
 
@@ -37,10 +36,9 @@ function addPoint(e){
 
 	
 
-	listUl.append(liPoint); //добавляем li в ol 
 	
 
-	toDoList.append(listUl); // ol в div toDoList
+	toDoList.append(liPoint); // li в toDoList
 
 	textInput.value = ''; //очищаем инпут
 
