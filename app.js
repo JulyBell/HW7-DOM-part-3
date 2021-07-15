@@ -11,13 +11,9 @@ function addPoint(e){
 	e.preventDefault();
 
 	let inputedPoint = textInput.value; //значение в инпуте
-	
 	let liPoint = document.createElement('li'); //формируем пункты списка динамически
-
 	liPoint.innerText = inputedPoint; //записываем в пункты списка значения из инпутов
-
 	liPoint.className ='notDone'; //обозначаем начальный класс
-
 	liPoint.addEventListener('click', (e) => {
 		e.preventDefault();
 		liPoint.classList.toggle('done'); //меняем класс при клике
