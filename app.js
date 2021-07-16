@@ -10,41 +10,28 @@ function addPoint(e){
 	e.preventDefault();
 
 	let inputedPoint = textInput.value; //значение в инпуте
-	let liPoint = document.createElement('li'); //формируем пункты списка динамически
-	liPoint.innerText = inputedPoint; //записываем в пункты списка значения из инпутов
-	liPoint.className ='notDone'; //обозначаем начальный класс
-	liPoint.addEventListener('click', (e) => {
-		e.preventDefault();
-		liPoint.classList.toggle('done'); //меняем класс при клике
-		
-	})
+	let liPoint = `
+	<li class = "notDone"> ${inputedPoint}</li><button class = "deleteButton">X</button>
+	`;
 
-	let deleteButton = document.createElement('button'); // создаем кнопку
-
-	deleteButton.type = 'submit'; //тип кнопки
-	deleteButton.innerText = 'X'; //текст кнопки
-	deleteButton.className = 'deleteButton'; //класс
-	liPoint.append(deleteButton); //добавляем в li
-
-	deleteButton.addEventListener('click', () => {
-		e.preventDefault();
-
-		liPoint.remove(); //удаляем пункт при нажатии кнопки
-
-	});
+	let wrapper = document.createElement('span'); //обертка
+	wrapper.innerHTML = liPoint; //обернули li и button, чтоб можно было их зааппендить и не использовать innerHTML, чтоб не перезаписывался список
 	
-
-	
-
-	
-
-	toDoList.append(liPoint); // li в toDoList
-
+	toDoList.append(wrapper); // добавляем в toDoList
 	textInput.value = ''; //очищаем инпут
-
 }
 
+toDoList.addEventListener('click', (e) => {
+	e.preventDefault();
 
+	if(e.target.tagName === 'LI'){
+		e.target.classList.toggle('done'); //меняем цвет фона
+	}
+
+	if(e.target.tagName === 'BUTTON'){
+		e.target.closest('span').remove(); //удаляем элемент по родителю, в который оборачивали
+	}
+})
 
 
 

@@ -28,6 +28,7 @@ body{
 
 li{
 	width:250px;
+	float:left;
 }
 
 input{
@@ -70,10 +71,10 @@ button{
 	width: 20px;
 	height: 18px;
 	margin-top: 0;
+	margin-right: 110px;
 	background-color: red;
 	color: white;
 	float: right;
-	margin-right: 0px;
 	
 }
 
